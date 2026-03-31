@@ -62,8 +62,9 @@ TESTARE
 
 POZITIVA: 
 
-T1:  Instance using constructor with 3 parameters
-        BrowserConfig c1 = new BrowserConfig(BrowserType.CHROME, "146.0", true);
+T1:  
+Instance using constructor with 3 parameters:
+- BrowserConfig c1 = new BrowserConfig(BrowserType.CHROME, "146.0", true);
 
 Expected:
 ----- CONFIG 1 -----
@@ -72,8 +73,9 @@ Detalii BrowserConfig:
   - Version: 146.0
   - isHeadless: true
 
-T2:  Instance using constructor with 2 parameters
-        BrowserConfig c2 = new BrowserConfig(BrowserType.FIREFOX, "149.0");
+T2:  
+Instance using constructor with 2 parameters:
+- BrowserConfig c2 = new BrowserConfig(BrowserType.FIREFOX, "149.0");
 
 Expected:
 ----- CONFIG 2 ------
@@ -82,8 +84,9 @@ Detalii BrowserConfig:
   - Version: 149.0
   - isHeadless: false
 
-T3:  Instance using constructor with 1 parameter
-        BrowserConfig c3 = new BrowserConfig(BrowserType.EDGE);
+T3:  
+Instance using constructor with 1 parameter
+- BrowserConfig c3 = new BrowserConfig(BrowserType.EDGE);
 
 Expected:
 ----- CONFIG 3 -----
@@ -92,8 +95,9 @@ Detalii BrowserConfig:
   - Version: latest
   - isHeadless: false
   
-T4:  Instance using static method factory
-        BrowserConfig c4 = BrowserConfig.createDefaultChromeConfig();
+T4:
+Instance using static method factory
+- BrowserConfig c4 = BrowserConfig.createDefaultChromeConfig();
 
 Expected:
 ----- CONFIG 4 (Factory) -----
