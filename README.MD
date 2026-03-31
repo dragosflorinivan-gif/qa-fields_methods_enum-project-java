@@ -11,23 +11,31 @@ Reguli de Validare:
 ○	Include valorile CHROME, FIREFOX, EDGE
 
 📌  Definește clasa publică BrowserConfig în fișierul BrowserConfig.java.
+
 ○	Adaugă următoarele câmpuri private:
+
 ■	browser (de tip BrowserType)
 ■	version (de tip String)
 ■	isHeadless (de tip boolean)
 
 ○	Implementează 3 constructori publici supraîncărcați:
+
 ■	Un constructor care primește toți cei 3 parametri (browser, version, isHeadless) și inițializează câmpurile corespunzătoare folosind this.
 ■	Un constructor care primește doar browser și version. Acesta trebuie să apeleze constructorul principal folosind this(), setând isHeadless la false.
 ■	Un constructor care primește doar browser. Acesta trebuie să apeleze al doilea constructor folosind this(), setând version la "latest" și isHeadless la false.
+
 ○	Implementează Metoda Statică "Factory": Adaugă o metodă public static BrowserConfig createDefaultChromeConfig() 
 care returnează o nouă instanță de BrowserConfig configurată pentru BrowserType.CHROME, versiunea "latest" și isHeadless setat la true.
+
 ○	Implementează Metoda de Afișare: Adaugă o metodă public void afiseazaConfig() care printează detaliile configurației obiectului curent (browser, version, isHeadless) 
 într-un format lizibil în consolă (ex: "Browser: CHROME, Version: latest, Headless: true").
 
 📌 Creează Clasa de Test TestConfigRunner:
+
 ○	Definește clasa publică TestConfigRunner în fișierul TestConfigRunner.java.
+
 ○	În metoda public static void main(String[] args):
+
 ■	Creează cel puțin o instanță BrowserConfig folosind fiecare dintre cei 3 constructori.
 ■	Creează o instanță BrowserConfig folosind metoda statică createDefaultChromeConfig().
 ■	Pentru fiecare instanță creată, apelează metoda afiseazaConfig() pentru a demonstra vizual 
@@ -53,8 +61,10 @@ REZOLVARE
 TESTARE
 
 POZITIVA: 
-//  Instance using constructor with 3 parameters
+
+T1:  Instance using constructor with 3 parameters
         BrowserConfig c1 = new BrowserConfig(BrowserType.CHROME, "146.0", true);
+
 Expected:
 ----- CONFIG 1 -----
 Detalii BrowserConfig:
@@ -62,8 +72,9 @@ Detalii BrowserConfig:
   - Version: 146.0
   - isHeadless: true
 
-//  Instance using constructor with 2 parameters
+T2:  Instance using constructor with 2 parameters
         BrowserConfig c2 = new BrowserConfig(BrowserType.FIREFOX, "149.0");
+
 Expected:
 ----- CONFIG 2 ------
 Detalii BrowserConfig:
@@ -71,8 +82,9 @@ Detalii BrowserConfig:
   - Version: 149.0
   - isHeadless: false
 
-//  Instance using constructor with 1 parameter
+T3:  Instance using constructor with 1 parameter
         BrowserConfig c3 = new BrowserConfig(BrowserType.EDGE);
+
 Expected:
 ----- CONFIG 3 -----
 Detalii BrowserConfig:
@@ -80,8 +92,9 @@ Detalii BrowserConfig:
   - Version: latest
   - isHeadless: false
   
-//  Instance using static method factory
+T4:  Instance using static method factory
         BrowserConfig c4 = BrowserConfig.createDefaultChromeConfig();
+
 Expected:
 ----- CONFIG 4 (Factory) -----
 Detalii BrowserConfig:
@@ -92,8 +105,11 @@ Detalii BrowserConfig:
 
   
 NEGATIVA (programul nu compileaza)
-// No instance
-        BrowserConfig c5 = BrowserConfig();
-// Wrong BrowserType
-        BrowserConfig c6 = BrowserConfig(BrowserType.SAFARI);
-// Make afiseazaConfig (BrowserConfig.java) from public to private --> cannot be accessed from TestConfigRunner.java
+
+T5: No instance
+        BrowserConfig c5 = BrowserConfig(); --> cannot find symbol method BrowserConfig()
+
+T6: Wrong BrowserType
+        BrowserConfig c6 = BrowserConfig(BrowserType.SAFARI); --> undefined browser type
+
+T7: Make afiseazaConfig (BrowserConfig.java) from public to private --> cannot be accessed from TestConfigRunner.java
