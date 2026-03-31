@@ -110,10 +110,13 @@ Detalii BrowserConfig:
   
 NEGATIVA (programul nu compileaza)
 
-T5: No instance
-        BrowserConfig c5 = BrowserConfig(); --> cannot find symbol method BrowserConfig()
+T5: 
+No instance
+- BrowserConfig c5 = BrowserConfig(); --> cannot find symbol method BrowserConfig()
 
-T6: Wrong BrowserType
-        BrowserConfig c6 = BrowserConfig(BrowserType.SAFARI); --> undefined browser type
+T6: 
+Wrong BrowserType
+- BrowserConfig c6 = BrowserConfig(BrowserType.SAFARI); --> undefined browser type
 
-T7: Make afiseazaConfig (BrowserConfig.java) from public to private --> cannot be accessed from TestConfigRunner.java
+T7: 
+Make afiseazaConfig (BrowserConfig.java) from public to private --> cannot be accessed from TestConfigRunner.java
